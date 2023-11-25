@@ -1,0 +1,16 @@
+{
+  "name": "catppuccin-mangadex",
+  "version": "1.1.0",
+  "keywords": [
+    "catppuccin",
+    "mangadex"
+  ],
+  "scripts": {
+    "build": "./build.sh"
+  },
+  "author": "Albert Zhang <alchzh@gmail.com>",
+  "dependencies": {
+    "@alchzh/mangadex-theme": "^1.1.2"
+  },
+  "private": true
+}
