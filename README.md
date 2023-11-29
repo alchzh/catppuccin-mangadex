@@ -41,7 +41,7 @@ Click on the flavor and accent color you want below!
 In order to accomodate the white text on accent-colored buttons, the dark themes have the accent color
 pulled from the Latte flavor. If you want the paler flavor-native accent colors, go to the [Natural Accent](#accent-natural) section.
 
-#### Latte Accent
+### Latte Accent
 <table>
   <tr><th></th><th></th><th><b>🌻 Latte</b></th><th><b>🪴 Frappé</b></th><th><b>🌺 Macchiato</b></th><th><b>🌿 Mocha</b></th></tr>
   <tr>
@@ -214,8 +214,9 @@ pulled from the Latte flavor. If you want the paler flavor-native accent colors,
   </tr>
 </table>
 
+<a name="accent-natural"></a><h3>Nautral Accent</h3>
 <details>
-<a name="accent-natural"></a><summary>Nautral Accent</summary>
+<summary>Click to show</summary>
 <table>
   <tr><th></th><th><b>🪴 Frappé</b></th><th><b>🌺 Macchiato</b></th><th><b>🌿 Mocha</b></th></tr>
   <tr>
