@@ -16,27 +16,37 @@ const INIT_LOCALSTORAGE = {
 }
 
 const screenshotSpec = {
-  "grid-front": {
+  "grid-0-front": {
     path: "/",
     theme: mdThemes["mauve"]["latte"],
   },
-  "grid-search": {
-    path: "/titles",
+  "grid-1-search": {
+    path: "/titles?include=a3c67850-4684-404e-9b7f-c69850ee5da6",
     theme: mdThemes["peach"]["frappe"],
     extra: async (page) => {
-      await page.evaluate(() => window.scroll(0, 135))
+      const viewSelect = await page.waitForSelector(".controls > .item:nth-child(3)")
+      await viewSelect.click()
+      await page.waitForSelector(".manga-card.cover-only")
+      // await page.evaluate(el => {
+      //   navbarBottom = window.document.querySelector(".nav-bar").getBoundingClientRect().bottom
+      //   controlsBottom = el.parentElement.parentElement.getBoundingClientRect().bottom
+      //   window.scrollTo(0, controlsBottom - navbarBottom)
+      // }, viewSelect)
     }
   },
-  "grid-series": {
+  "grid-2-series": {
     path: "/title/9d3d3403-1a87-4737-9803-bc3d99db1424/the-guy-she-was-interested-in-wasn-t-a-guy-at-all",
     theme: mdThemes["mauve"]["macchiato"],
   },
-  "grid-chapter": {
-    path: "/chapter/d79edaa4-0b67-4fc1-b353-d168d40b691d/1",
+  "grid-3-chapter": {
+    path: "/chapter/8886f97b-14cc-4a45-b624-986b2602e11d/2",
     theme: mdThemes["mauve"]["mocha"],
     extra: async (page) => {
       await page.click(".reader--meta.menu")
-      await page.evaluate(() => window.scroll(0, 0))
+      await page.evaluate(() => {
+        window.scroll(0, 0)
+      })
+      await page.waitForTimeout(500)
     }
   },
   ...Object.fromEntries(Object.keys(flavors).map(flavor => [`flavor-${flavor}`, {
