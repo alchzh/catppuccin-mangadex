@@ -1,16 +1,43 @@
 {
-  "name": "catppuccin-mangadex",
-  "version": "1.1.0",
+  "name": "@alchzh/catppuccin-mangadex",
+  "version": "2.0.0",
+  "description": "📙 Soothing pastel theme for MangaDex",
+  "main": "mangadex-themes.json",
   "keywords": [
     "catppuccin",
     "mangadex"
   ],
   "scripts": {
-    "build": "./build.sh"
+    "compile-template": "whiskers-js compile -X -x template-theme.hbs.yaml --map compiled/theme.yaml.mjs.map -f compiled/theme.yaml.mjs && chmod +x compiled/theme.yaml.mjs",
+    "generate-themes": "scripts/generate-themes.mjs > mangadex-themes.json",
+    "render-readme": "scripts/render-readme.mjs > README.md",
+    "take-screenshots": "scripts/take-screenshots.mjs",
+    "compose-previews": "scripts/compose-previews.mjs assets/",
+    "prepare": "run-s compile-template generate-themes",
+    "build": "run-s compile-template generate-themes render-readme take-screenshots compose-previews"
   },
   "author": "Albert Zhang <alchzh@gmail.com>",
+  "license": "MIT",
+  "private": true,
   "dependencies": {
-    "@alchzh/mangadex-theme": "^1.1.2"
+    "@alchzh/mangadex-theme": "^1.2.0",
+    "catppuccin-whiskers-js": "^2.4.6",
+    "js-yaml": "^4.1.0"
   },
-  "private": true
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "puppeteer": "^21.5.2",
+    "sharp": "^0.32.6"
+  },
+  "files": [
+    "compiled/theme.yaml.mjs",
+    "mangadex-themes.json",
+    "template-theme.hbs.yaml",
+    "LICENSE",
+    "package.json"
+  ],
+  "bin": {
+    "catppuccin-mangadex-yaml": "./compiled/theme.yaml.js"
+  },
+  "type": "module"
 }

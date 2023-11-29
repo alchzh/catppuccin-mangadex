@@ -1,0 +1,111 @@
+---
+# Set accent to a hex color (without the hex) or accent-label to a
+# color label to change the primary/accent color
+accent: {{lookup latte accent-label}}
+author-id: 6ed182b8-84a4-4c5f-b766-d3f724bb0785
+---
+
+# MangaDex GUID, viewable on user profile page. Must be exactly 36 characters long
+author: {{author-id}}
+# Sets the browser color-scheme for the theme (changes logo color)
+colorScheme: {{darklight 'dark' 'light'}}
+# The schema version of this MangaDex theme
+_version: 1.1
+
+values:
+  # Text Color
+  color:
+    - "#{{text}}"
+  # Main Background
+  background:
+    - "#{{base}}"
+
+  # MangaDex calls "Accent"s the shaded tones Catppuccin calls surfaces/overlays
+  # Conveniently they use 6 accent levels, the same nuber of surface/overlay
+  # levels in Catppuccin. Each of the 6 accent levels consists of three colors
+  # following the site's convention
+  #   - Base
+  #   - Hover (lighter in dark themes, darker in light themes)
+  #   - Active / Clicked (darker in all themes)
+
+  # Accent
+  # The color of the main sidebar and most item boxes
+  accent:
+    - "#{{surface0}}"
+    - "#{{darklight (lighten surface0 0.1) (darken surface0 0.1)}}"
+    - "#{{darklight (darken surface0 0.1) (darken surface0 0.2)}}"
+  # Accent L1
+  accent-10:
+    - "#{{surface1}}"
+    - "#{{darklight (lighten surface1 0.1) (darken surface1 0.1)}}"
+    - "#{{darklight (darken surface1 0.1) (darken surface1 0.2)}}"
+  # Accent L2
+  accent-20:
+    - "#{{surface2}}"
+    - "#{{darklight (lighten surface2 0.1) (darken surface2 0.1)}}"
+    - "#{{darklight (darken surface2 0.1) (darken surface2 0.2)}}"
+  # Accent L3
+  accent-30:
+    - "#{{overlay0}}"
+    - "#{{darklight (lighten overlay0 0.1) (darken overlay0 0.1)}}"
+    - "#{{darklight (darken overlay0 0.1) (darken overlay0 0.2)}}"
+  # Accent L4
+  accent-40:
+    - "#{{overlay1}}"
+    - "#{{darklight (lighten overlay1 0.1) (darken overlay1 0.1)}}"
+    - "#{{darklight (darken overlay1 0.1) (darken overlay1 0.2)}}"
+  # Accent L5
+  accent-50:
+    - "#{{overlay2}}"
+    - "#{{darklight (lighten overlay2 0.1) (darken overlay2 0.1)}}"
+    - "#{{darklight (darken overlay2 0.1) (darken overlay2 0.2)}}"
+
+  # Mid Tone (Unused)
+  # Probably intended to be used for horizontal rules and box borders?
+  midTone:
+    - "#{{subtext1}}"
+
+  # Contrast
+  # Used for the color of the active element in tab bars
+  contrast:
+    - "#{{overlay2}}"
+
+  scrollbar:
+    - "#{{surface1}}" # Scrollbar (unused in Firefox)
+    - "#{{surface2}}" # Scrollbar Hover
+
+
+  # Primary
+  # Used for the active sidebar element and the primary button(s) on a page
+  primary:
+    - "#{{accent}}"
+    - "#{{darken accent 0.05}}" # L1 (Sidebar hover)
+    - "#{{darken accent 0.15}}" # L2 (Not sure what this does)
+
+  # Button Accent
+  # Used for the color of secondary buttons
+  button:
+    - "#{{darklight surface2 surface0}}"
+    - "#{{darklight surface0 surface2}}" # Alternate
+
+  # Danger
+  # Used for dangerous buttons such as "Delete Chapter" and "Delete Account"
+  danger:
+    - "#{{red}}"
+    - "#{{darken red 0.1}}"
+    - "#{{darken red 0.2}}"
+
+  # Statuses
+  # Used for the status circles in boxes such as the Publication box
+  status:
+    - "#{{red}}" # Red
+    - "#{{green}}" # Green
+    - "#{{yellow}}" # Yellow
+    - "#{{sky}}" # Blue (used to mark unread chapters)
+    - "#{{darklight subtext1 surface1}}" # Grey
+    - "#{{mauve}}" # Purple
+
+  # Indication (Blue)
+  # Unsure of purpose
+  indication:
+    - "#{{blue}}"
