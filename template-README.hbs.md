@@ -8,6 +8,11 @@ headers:
   frappe: "🪴 Frappé"
   macchiato: "🌺 Macchiato"
   mocha: "🌿 Mocha"
+flavors-noir:
+{{#each flavors}}{{#if this.isDark}}
+  - key: {{{@key}}}
+    natural: {{{@key}}}-natural
+{{/if}}{{/each}}
 ---
 
 <h3 align="center">
@@ -40,18 +45,41 @@ headers:
 
 Click on the flavor and accent color you want below!
 
+In order to accomodate the white text on accent-colored buttons, the dark themes have the accent color
+pulled from the Latte flavor. If you want the paler flavor-native accent colors, go to the [Natural Accent](#accent-natural) section.
+
+#### Latte Accent
 <table>
-  <tr><th><b>Accent</b></th><th></th><details>{{#each headers}}<th><b>{{{this}}}</b></th>{{/each}}</tr>
+  <tr><th></th><th></th>{{#each headers}}<th><b>{{{this}}}</b></th>{{/each}}</tr>
   {{#each mdThemes}}
   <tr>
     <td><b>{{titlecase @key}}</b></td>
     <td><img src="{{{@root.catppuccin-assets-url}}}/palette/circles/latte_{{@key}}.png" height="23" width="23"></img></td>
-    {{#each this}}
-    <td><a target="_blank" href="{{{@root.mangadex-url}}}{{{this}}}">{{titlecase @../key}}-{{titlecase @key}}</a></td>
+    {{#each @root.flavors}}
+    <!-- {{{@key}}} -->
+    <td><a target="_blank" href="{{{@root.mangadex-url}}}{{{lookup ../this @key}}}">{{titlecase @key}}-{{titlecase @../key}}</a></td>
     {{/each}}
   </tr>
   {{/each}}
 </table>
+
+<details>
+<a name="accent-natural"></a><summary>Nautral Accent</summary>
+<table>
+  <tr><th></th>{{#each flavors-noir}}<th><b>{{{lookup @root.headers this.key}}}</b></th>{{/each}}</tr>
+  {{#each mdThemes}}
+  <tr>
+    <td><b>{{titlecase @key}}</b></td>
+    {{#each @root.flavors-noir}}
+    <!-- {{{key}}} {{{noir}}} -->
+    <td><img src="{{{@root.catppuccin-assets-url}}}/palette/circles/{{key}}_{{@../key}}.png" height="23" width="23"></img>
+    <a target="_blank" href="{{{@root.mangadex-url}}}{{{lookup ../this natural}}}">{{titlecase natural}}-{{titlecase @../key}}</a>
+    </td>
+    {{/each}}
+  </tr>
+  {{/each}}
+</table></details>
+
 
 ## 🙋 FAQ
 

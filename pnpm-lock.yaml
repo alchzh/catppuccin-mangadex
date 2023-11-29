@@ -9,8 +9,8 @@ dependencies:
     specifier: ^1.2.0
     version: 1.2.0
   catppuccin-whiskers-js:
-    specifier: ^2.4.6
-    version: 2.4.6
+    specifier: ^2.4.7
+    version: 2.4.7
   js-yaml:
     specifier: ^4.1.0
     version: 4.1.0
@@ -220,8 +220,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /catppuccin-whiskers-js@2.4.6:
-    resolution: {integrity: sha512-OYfCpyAqE0ImaR6iKze0t3CYI4AMzeA46dT2tCT0+AvbfsFZ+ZHIEQhopb1pI9pKcFx9aEjbjNEIWMBVAvyhqw==}
+  /catppuccin-whiskers-js@2.4.7:
+    resolution: {integrity: sha512-2yfi5rS0NISTisT0MxlPe+oGp+RNrDk0lf6qYmim7DhUSY9kg2tb5Ga3ssIYqtiU74gvUaEH36S5OL6bwKAFAA==}
     hasBin: true
     dependencies:
       better-title-case: 2.1.0
