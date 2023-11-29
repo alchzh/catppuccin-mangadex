@@ -81,7 +81,7 @@ async function main() {
     const rounded = await roundCorners(image)
     const outPath = pathLib.format({...flavorPreview, base: '', ext: '.webp'})
     console.log("Writing to", outPath)
-    await fs.writeFile(outPath, await rounded.webp().toBuffer())
+    await fs.writeFile(outPath, await rounded.webp({lossless:true, quality: 100, force: true}).toBuffer())
   })
 
   const gridTask = async () => {
@@ -94,7 +94,7 @@ async function main() {
       images: await Promise.all(images),
       cols: 2,
       scale: 0.5
-    })).webp().toBuffer())
+    })).webp({lossless:true, quality: 100, force: true}).toBuffer())
   }
 
   await Promise.all([...flavorTasks, gridTask()])

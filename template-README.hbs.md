@@ -41,14 +41,15 @@ headers:
 Click on the flavor and accent color you want below!
 
 <table>
-  <tr><th></th><th><b>Accent Color</b></th><details>{{#each headers}}<th><b>{{{this}}}</b></th>{{/each}}</tr>
+  <tr><th><b>Accent</b></th><th></th><details>{{#each headers}}<th><b>{{{this}}}</b></th>{{/each}}</tr>
   {{#each mdThemes}}
   <tr>
-    <td><img src="{{{@root.catppuccin-assets-url}}}/palette/circles/latte_{{@key}}.png" height="23" width="23"></img></td>
     <td><b>{{titlecase @key}}</b></td>
+    <td><img src="{{{@root.catppuccin-assets-url}}}/palette/circles/latte_{{@key}}.png" height="23" width="23"></img></td>
     {{#each this}}
-    <td><a target="_blank" href="{{@root.mangadex-url}}{{{this}}}">{{titlecase @../key}}-{{titlecase @key}}</a></td>
+    <td><a target="_blank" href="{{{@root.mangadex-url}}}{{{this}}}">{{titlecase @../key}}-{{titlecase @key}}</a></td>
     {{/each}}
+  </tr>
   {{/each}}
 </table>
 
